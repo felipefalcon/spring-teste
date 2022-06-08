@@ -21,14 +21,14 @@ public class CustomerController {
 		this.service = service;
 	}
 
-	@GetMapping
-	public List<Customer> findAll() {
-		return service.findAll();
+	@GetMapping("/{page_num}/{page_size}")
+	public List<Customer> findAll(@PathVariable Integer page_num, @PathVariable Integer page_size) {
+		return service.findAll(page_num, page_size);
 	}
 
-	@GetMapping("/{id}")
-	public Customer findById(@PathVariable Long id) {
-		return service.findById(id)
+	@GetMapping("/get-customer/{customer_id}")
+	public Customer findById(@PathVariable Long customer_id) {
+		return service.findById(customer_id)
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found"));
 	}
 
@@ -37,9 +37,9 @@ public class CustomerController {
 		return service.createCustomer(customer);
 	}
 
-	@RequestMapping(value = "/update-customer", method = RequestMethod.PUT)
-	public Customer updateCustomer(@RequestBody Customer customer) throws Exception {
-		return service.updateCustomer(customer);
+	@RequestMapping(value = "/update-customer/{customer_id}", method = RequestMethod.PUT)
+	public Customer updateCustomer(@RequestBody Customer customer, @PathVariable Long customer_id) throws Exception {
+		return service.updateCustomer(customer, customer_id);
 	}
 
 	@RequestMapping(value = "/delete-customer/{customer_id}", method = RequestMethod.DELETE)
