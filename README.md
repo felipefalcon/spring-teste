@@ -1,15 +1,7 @@
-# Custumer Service
+# Customer Service Clone
 
-### Requisitos
-
-1. JDK 8
-1. Maven 3
-
-### Rodando
-
-1. Clone o projeto: `https://github.com/allanalves92/practical-test.git`
-1. Entre na pasta `practical-test` e execute: `mvn spring-boot:run`
-1. Acesse: `http://localhost:8080/customers`
-
+Para acessar:
+* Entre na pasta spring-teste e execute: mvn spring-boot:ru
+* Acessa a url: http://localhost:8080/swagger-ui.html para ver a documentação com os endpoints
 
 
