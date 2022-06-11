@@ -12,16 +12,14 @@ public class Address {
 	private Long address_id;
 
 	@Column(nullable = false)
-	@NotEmpty
-	private String customer_id;
+	private Long customer_id;
 
 	@Column(nullable = false)
 	@NotEmpty
 	private String street;
 
 	@Column(nullable = false)
-	@NotEmpty
-	private Integer address_number;
+	private Long address_number;
 
 	@Column(nullable = false)
 	@NotEmpty
@@ -35,11 +33,11 @@ public class Address {
 		this.address_id = address_id;
 	}
 
-	public String getCustomer_id() {
+	public Long getCustomer_id() {
 		return customer_id;
 	}
 
-	public void setCustomer_id(String customer_id) {
+	public void setCustomer_id(Long customer_id) {
 		this.customer_id = customer_id;
 	}
 
@@ -51,11 +49,11 @@ public class Address {
 		this.street = street;
 	}
 
-	public Integer getAddress_number() {
+	public Long getAddress_number() {
 		return address_number;
 	}
 
-	public void setAddress_number(Integer address_number) {
+	public void setAddress_number(Long address_number) {
 		this.address_number = address_number;
 	}
 

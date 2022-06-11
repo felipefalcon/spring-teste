@@ -1,12 +1,10 @@
 package com.example.api.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -24,9 +22,10 @@ public class Customer {
 	@Email
 	private String email;
 
-	public Customer(){
+	@ElementCollection
+	private List<Address> addresses = new ArrayList<>();
 
-	}
+	public Customer(){}
 	public Customer(String name, String email) {
 		this.setName(name);
 		this.setEmail(email);
@@ -56,4 +55,11 @@ public class Customer {
 		this.email = email;
 	}
 
+	public List<Address> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
+	}
 }
